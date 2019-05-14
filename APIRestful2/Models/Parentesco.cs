@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace APIRestful2.Models
+﻿namespace APIRestful2.Models
 {
     public class Parentesco
     {
