@@ -26,23 +26,37 @@ namespace APIRestful2.Controllers
         // POST: api/Empresa
         public string Post([FromBody]Empresa value)
         {
-            var conexao = new Connection();
-            conexao.AdicionarParametros("@RazaoSocial", value.RazaoSocial);
-            conexao.AdicionarParametros("@DataCadastro", DateTime.Now);
-            conexao.AdicionarParametros("@DataAlteracao", value.DataAlteracao);
-            conexao.AdicionarParametros("@Cnpj", value.Cnpj);
-            conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_InsertEmpresas");
-            return value.RazaoSocial;
+            try
+            {
+                var conexao = new Connection();
+                conexao.AdicionarParametros("@RazaoSocial", value.RazaoSocial);
+                conexao.AdicionarParametros("@DataCadastro", DateTime.Now);
+                conexao.AdicionarParametros("@DataAlteracao", value.DataAlteracao);
+                conexao.AdicionarParametros("@Cnpj", value.Cnpj);
+                conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_InsertEmpresas");
+                return value.RazaoSocial;
+            }
+            catch(Exception e)
+            {
+                return "Excecao de post: " + e.ToString();
+            }
         }
 
         // PUT: api/Empresa/5
         public string Put(int id, [FromBody]Empresa value)
         {
-            var conexao = new Connection();
-            conexao.AdicionarParametros("@Id", id);
-            conexao.AdicionarParametros("@Novo", value.RazaoSocial);
-            conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_UpdateEmpresa");
-            return value.RazaoSocial;
+            try
+            {
+                var conexao = new Connection();
+                conexao.AdicionarParametros("@Id", id);
+                conexao.AdicionarParametros("@Novo", value.RazaoSocial);
+                conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_UpdateEmpresa");
+                return value.RazaoSocial;
+            }
+            catch(Exception e)
+            {
+                return "Excecao de put: " + e.ToString();
+            }
         }
 
         // DELETE: api/Empresa/5

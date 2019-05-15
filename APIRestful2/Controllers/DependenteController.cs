@@ -27,26 +27,40 @@ namespace APIRestful2.Controllers
         // POST: api/Dependentes
         public string Post([FromBody]Dependentes value)
         {
-            var conexao = new Connection();
-            conexao.AdicionarParametros("@nome", value.Nome);
-            conexao.AdicionarParametros("@IdFuncionario", value.IdFuncionario);
-            conexao.AdicionarParametros("@DataCadastro", DateTime.Now);
-            conexao.AdicionarParametros("@DataAlteracao", value.DataAlteracao);
-            conexao.AdicionarParametros("@Cpf", value.Cpf);
-            conexao.AdicionarParametros("@DataNascimento", value.DataNascimento);
-            conexao.AdicionarParametros("@IdParentesco", value.IdParentesco);
-            conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_InsertDependentes");
-            return value.Nome;
+            try
+            {
+                var conexao = new Connection();
+                conexao.AdicionarParametros("@nome", value.Nome);
+                conexao.AdicionarParametros("@IdFuncionario", value.IdFuncionario);
+                conexao.AdicionarParametros("@DataCadastro", DateTime.Now);
+                conexao.AdicionarParametros("@DataAlteracao", value.DataAlteracao);
+                conexao.AdicionarParametros("@Cpf", value.Cpf);
+                conexao.AdicionarParametros("@DataNascimento", value.DataNascimento);
+                conexao.AdicionarParametros("@IdParentesco", value.IdParentesco);
+                conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_InsertDependentes");
+                return value.Nome;
+            }
+            catch (Exception e)
+            {
+                return "Excecao de post: " + e.ToString();
+            }
         }
 
         // PUT: api/Dependentes/5
         public string Put(int id, [FromBody]Dependentes value)
         {
-            var conexao = new Connection();
-            conexao.AdicionarParametros("@Id", id);
-            conexao.AdicionarParametros("@Nome", value.Nome);
-            conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_UpdateDependente");
-            return value.Nome;
+            try
+            {
+                var conexao = new Connection();
+                conexao.AdicionarParametros("@Id", id);
+                conexao.AdicionarParametros("@Nome", value.Nome);
+                conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_UpdateDependente");
+                return value.Nome;
+            }
+            catch (Exception e)
+            {
+                return "Excecao de put: " + e.ToString();
+            }
         }
 
         // DELETE: api/Dependentes/5

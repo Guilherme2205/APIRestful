@@ -26,21 +26,35 @@ namespace APIRestful2.Controllers
         // POST: api/Profissao
         public string Post([FromBody]Profissao value)
         {
-            var conexao = new Connection();
-            conexao.AdicionarParametros("@Nome", value.Nome);
-            conexao.AdicionarParametros("@DataCad", DateTime.Now);
-            conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_InsertProfissao");
-            return value.Nome;
+            try
+            {
+                var conexao = new Connection();
+                conexao.AdicionarParametros("@Nome", value.Nome);
+                conexao.AdicionarParametros("@DataCad", DateTime.Now);
+                conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_InsertProfissao");
+                return value.Nome;
+            }
+            catch (Exception e)
+            {
+                return "Excecao do post: " + e.ToString();
+            }
         }
 
         // PUT: api/Profissao/5
         public string Put(int id, [FromBody]Profissao value)
         {
-            var conexao = new Connection();
-            conexao.AdicionarParametros("@Id", id);
-            conexao.AdicionarParametros("@Novo", value.Nome);
-            conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_UpdateProfissao");
-            return value.Nome;
+            try
+            {
+                var conexao = new Connection();
+                conexao.AdicionarParametros("@Id", id);
+                conexao.AdicionarParametros("@Novo", value.Nome);
+                conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_UpdateProfissao");
+                return value.Nome;
+            }
+            catch (Exception e)
+            {
+                return "Excecao de put: " + e.ToString();
+            }
         }
 
         // DELETE: api/Profissao/5
