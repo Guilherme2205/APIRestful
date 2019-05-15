@@ -7,7 +7,7 @@ namespace APIRestful2
 {
     public class Connection
     {
-        public static SqlConnection CriaConexao()
+        public SqlConnection CriaConexao()
         {
             return new SqlConnection(Settings.Default.stringConexao);
         }

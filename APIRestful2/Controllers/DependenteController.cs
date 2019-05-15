@@ -12,7 +12,8 @@ namespace APIRestful2.Controllers
         public IEnumerable<DataTable> Get()
         {
             var conexao = new Connection();
-            yield return conexao.ExecutarConsulta(CommandType.StoredProcedure, "p_ListarDependentes");
+            DataTable lista = conexao.ExecutarConsulta(CommandType.StoredProcedure, "p_ListarDependentes");
+            yield return lista;
         }
 
         // GET: api/Dependentes/5
@@ -51,9 +52,9 @@ namespace APIRestful2.Controllers
         // DELETE: api/Dependentes/5
         public void Delete(int id)
         {
-            var conexao = new Connection();
-            conexao.AdicionarParametros("@Id", id);
-            conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_DeleteDependente");
+                var conexao = new Connection();
+                conexao.AdicionarParametros("@Idc", id);
+                conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_DeleteDependente");
         }
     }
 }
