@@ -56,11 +56,19 @@ namespace APIRestful2.Controllers
         }
 
         // DELETE: api/Funcionario/5
-        public void Delete(int id)
+        public string Delete(int id)
         {
-            var conexao = new Connection();
-            conexao.AdicionarParametros("@Id", id);
-            conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_DeleteFuncionario");
+            try
+            {
+                var conexao = new Connection();
+                conexao.AdicionarParametros("@Id", id);
+                conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_DeleteFuncionario");
+                return ("Funcionario " + id + "deletado!");
+            }
+            catch (Exception e)
+            {
+                return "Excecao de delete: " + e.ToString();
+            }
         }
     }
 }
