@@ -4,7 +4,7 @@ using System.Web.Http;
 
 namespace APIRestful2.Controllers
 {
-    public class EstadoCivilController : ApiController
+    public class EstadosCivisController : ApiController
     {        
         // GET: api/EstadoCivil
         public IEnumerable<DataTable> Get()

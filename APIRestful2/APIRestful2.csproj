@@ -148,12 +148,12 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Conexao\Connection.cs" />
-    <Compile Include="Controllers\DependenteController.cs" />
-    <Compile Include="Controllers\EmpresaController.cs" />
-    <Compile Include="Controllers\EstadoCivilController.cs" />
-    <Compile Include="Controllers\FuncionarioController.cs" />
-    <Compile Include="Controllers\ParentescoController.cs" />
-    <Compile Include="Controllers\ProfissaoController.cs" />
+    <Compile Include="Controllers\DependentesController.cs" />
+    <Compile Include="Controllers\EmpresasController.cs" />
+    <Compile Include="Controllers\EstadosCivisController.cs" />
+    <Compile Include="Controllers\FuncionariosController.cs" />
+    <Compile Include="Controllers\ParentescosController.cs" />
+    <Compile Include="Controllers\ProfissoesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -4,7 +4,7 @@ using System.Web.Http;
 
 namespace APIRestful2.Controllers
 {
-    public class ParentescoController : ApiController
+    public class ParentescosController : ApiController
     {
         // GET: api/Values
         public IEnumerable<DataTable> Get()

@@ -6,7 +6,7 @@ using System.Web.Http;
 
 namespace APIRestful2.Controllers
 {
-    public class DependenteController : ApiController
+    public class DependentesController : ApiController
     {
         // GET: api/Dependentes
         public IEnumerable<DataTable> Get()
