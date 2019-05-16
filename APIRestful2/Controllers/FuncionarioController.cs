@@ -36,7 +36,7 @@ namespace APIRestful2.Controllers
                 conexao.AdicionarParametros("@tel", value.DataNascimento);
                 conexao.AdicionarParametros("@IdEm", value.IdEmpresa);
                 conexao.AdicionarParametros("@DataCad", DateTime.Now);
-                conexao.AdicionarParametros("@DataAlt", value.DataAlteracao);
+                conexao.AdicionarParametros("@DataAlt", DateTime.Now);
                 conexao.AdicionarParametros("@Logr", value.Logradouro);
                 conexao.AdicionarParametros("@Bai", value.Bairro);
                 conexao.AdicionarParametros("@Cid", value.Cidade);
@@ -59,7 +59,20 @@ namespace APIRestful2.Controllers
             {
                 var conexao = new Connection();
                 conexao.AdicionarParametros("@Id", id);
-                conexao.AdicionarParametros("@Novo", value.Nome);
+                conexao.AdicionarParametros("@IdEc", value.IdEstadoCivil);
+                conexao.AdicionarParametros("@Cpf", value.Cpf);
+                conexao.AdicionarParametros("@DataN", value.DataNascimento);
+                conexao.AdicionarParametros("@IdPro", value.IdProfissao);
+                conexao.AdicionarParametros("@tel", value.DataNascimento);
+                conexao.AdicionarParametros("@IdEm", value.IdEmpresa);
+                conexao.AdicionarParametros("@DataCad", value.DataCadastro);
+                conexao.AdicionarParametros("@DataAlt", DateTime.Now);
+                conexao.AdicionarParametros("@Logr", value.Logradouro);
+                conexao.AdicionarParametros("@Bai", value.Bairro);
+                conexao.AdicionarParametros("@Cid", value.Cidade);
+                conexao.AdicionarParametros("@Es", value.Estado);
+                conexao.AdicionarParametros("@Cep", value.Cep);
+                conexao.AdicionarParametros("@Nome", value.Nome);
                 conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_UpdateFuncionario");
                 return value.Nome;
             }

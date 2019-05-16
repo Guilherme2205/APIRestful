@@ -109,9 +109,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Db\Procedures\InsertFuncionario.sql" />
-    <Content Include="Db\Procedures\InsertParentesco.sql" />
-    <Content Include="Db\Procedures\ListarParentescos.sql" />
     <Content Include="Db\Procedures\p_DeleteDependente.sql" />
     <Content Include="Db\Procedures\p_DeleteEmpresa.sql" />
     <Content Include="Db\Procedures\P_DeleteEs.sql" />
@@ -121,11 +118,14 @@
     <Content Include="Db\Procedures\p_InsertDependentes.sql" />
     <Content Include="Db\Procedures\p_InsertEmpresas.sql" />
     <Content Include="Db\Procedures\p_InsertEs.sql" />
+    <Content Include="Db\Procedures\p_InsertFuncionario.sql" />
+    <Content Include="Db\Procedures\p_InsertParentesco.sql" />
     <Content Include="Db\Procedures\p_InsertProfissao.sql" />
     <Content Include="Db\Procedures\p_ListarDependentes.sql" />
     <Content Include="Db\Procedures\p_ListarEmpresas.sql" />
     <Content Include="Db\Procedures\p_ListarEstadoCivil.sql" />
     <Content Include="Db\Procedures\p_ListarFuncionarios.sql" />
+    <Content Include="Db\Procedures\p_ListarParentescos.sql" />
     <Content Include="Db\Procedures\p_ListarProfissoes.sql" />
     <Content Include="Db\Procedures\p_SelectDependente.sql" />
     <Content Include="Db\Procedures\p_SelectEmpresas.sql" />

@@ -31,7 +31,7 @@ namespace APIRestful2.Controllers
                 var conexao = new Connection();
                 conexao.AdicionarParametros("@RazaoSocial", value.RazaoSocial);
                 conexao.AdicionarParametros("@DataCadastro", DateTime.Now);
-                conexao.AdicionarParametros("@DataAlteracao", value.DataAlteracao);
+                conexao.AdicionarParametros("@DataAlteracao", DateTime.Now);
                 conexao.AdicionarParametros("@Cnpj", value.Cnpj);
                 conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_InsertEmpresas");
                 return value.RazaoSocial;
@@ -50,6 +50,9 @@ namespace APIRestful2.Controllers
                 var conexao = new Connection();
                 conexao.AdicionarParametros("@Id", id);
                 conexao.AdicionarParametros("@Novo", value.RazaoSocial);
+                conexao.AdicionarParametros("@DataCadastro", value.DataCadastro);
+                conexao.AdicionarParametros("@DataAlteracao", DateTime.Now);
+                conexao.AdicionarParametros("@Cnpj", value.Cnpj);
                 conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_UpdateEmpresa");
                 return value.RazaoSocial;
             }

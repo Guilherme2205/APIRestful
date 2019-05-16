@@ -12,8 +12,7 @@ namespace APIRestful2.Controllers
         public IEnumerable<DataTable> Get()
         {
             var conexao = new Connection();
-            DataTable lista = conexao.ExecutarConsulta(CommandType.StoredProcedure, "p_ListarDependentes");
-            yield return lista;
+                yield return conexao.ExecutarConsulta(CommandType.StoredProcedure, "p_ListarDependentes");
         }
 
         // GET: api/Dependentes/5
@@ -33,7 +32,7 @@ namespace APIRestful2.Controllers
                 conexao.AdicionarParametros("@nome", value.Nome);
                 conexao.AdicionarParametros("@IdFuncionario", value.IdFuncionario);
                 conexao.AdicionarParametros("@DataCadastro", DateTime.Now);
-                conexao.AdicionarParametros("@DataAlteracao", value.DataAlteracao);
+                conexao.AdicionarParametros("@DataAlteracao", DateTime.Now);
                 conexao.AdicionarParametros("@Cpf", value.Cpf);
                 conexao.AdicionarParametros("@DataNascimento", value.DataNascimento);
                 conexao.AdicionarParametros("@IdParentesco", value.IdParentesco);
@@ -54,6 +53,12 @@ namespace APIRestful2.Controllers
                 var conexao = new Connection();
                 conexao.AdicionarParametros("@Id", id);
                 conexao.AdicionarParametros("@Nome", value.Nome);
+                conexao.AdicionarParametros("@IdFuncionario", value.IdFuncionario);
+                conexao.AdicionarParametros("@DataCadastro", value.DataCadastro);
+                conexao.AdicionarParametros("@DataAlteracao", DateTime.Now);
+                conexao.AdicionarParametros("@Cpf", value.Cpf);
+                conexao.AdicionarParametros("@DataNascimento", value.DataNascimento);
+                conexao.AdicionarParametros("@IdParentesco", value.IdParentesco);
                 conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_UpdateDependente");
                 return value.Nome;
             }

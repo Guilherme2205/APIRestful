@@ -29,7 +29,7 @@ namespace APIRestful2.Controllers
             try
             {
                 var conexao = new Connection();
-                conexao.AdicionarParametros("@Nome", value.Nome);
+                conexao.AdicionarParametros("@Novo", value.Nome);
                 conexao.AdicionarParametros("@DataCad", DateTime.Now);
                 conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_InsertProfissao");
                 return value.Nome;
@@ -48,6 +48,7 @@ namespace APIRestful2.Controllers
                 var conexao = new Connection();
                 conexao.AdicionarParametros("@Id", id);
                 conexao.AdicionarParametros("@Novo", value.Nome);
+                conexao.AdicionarParametros("@DataCad", value.DataCadastro);
                 conexao.ExecutarManipulacao(CommandType.StoredProcedure, "p_UpdateProfissao");
                 return value.Nome;
             }
