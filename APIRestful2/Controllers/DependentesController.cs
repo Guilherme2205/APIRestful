@@ -6,7 +6,6 @@ using System.Web.Http;
 
 namespace APIRestful2.Controllers
 {
-    [Route("api/{controller}")]
     public class DependentesController : ApiController
     {
         // GET: api/Dependentes
