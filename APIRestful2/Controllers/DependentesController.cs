@@ -10,7 +10,6 @@ namespace APIRestful2.Controllers
     public class DependentesController : ApiController
     {
         // GET: api/Dependentes
-        [HttpGet]
         public IEnumerable<DataTable> Get()
         {
             var conexao = new Connection();
@@ -18,7 +17,6 @@ namespace APIRestful2.Controllers
         }
 
         // GET: api/Dependentes/5
-        //[HttpGet("{id}")]
         public IEnumerable<DataTable> Get(int id)
         {
             var conexao = new Connection();
@@ -50,7 +48,6 @@ namespace APIRestful2.Controllers
         }
 
         // PUT: api/Dependentes/5
-        //[HttpPut("{id}")]
         public string Put(int id, [FromBody]Dependentes value)
         {
             try
@@ -74,7 +71,6 @@ namespace APIRestful2.Controllers
         }
 
         // DELETE: api/Dependentes/5
-        //[HttpDelete("{id}")]
         public string Delete(int id)
         {
             try
